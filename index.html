@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Harshal Thakre | B.Tech IT Student & Aspiring Web Developer</title>
+  <meta name="title" content="Harshal Thakre | B.Tech IT Student & Aspiring Web Developer">
+  <meta name="description" content="Personal portfolio of Harshal Thakre, a B.Tech Information Technology student and aspiring web developer building clean, responsive, and user-friendly web experiences.">
+  <meta name="author" content="Harshal Thakre">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Harshal Thakre | B.Tech IT Student & Aspiring Web Developer">
+  <meta property="og:description" content="Personal portfolio of Harshal Thakre, featuring responsive web projects, technical skills, and frontend development work.">
+  <meta property="og:image" content="assets/favicon.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Accessible Skip to Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Bar -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="logo" aria-label="Harshal Thakre Portfolio Home">
+        <span class="logo-bracket">&lt;</span><span class="logo-initials">HT</span><span class="logo-slash">&#47;</span><span class="logo-bracket">&gt;</span>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        type="button" 
+        class="nav-toggle" 
+        id="nav-toggle" 
+        aria-controls="primary-nav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
+      <!-- Primary Navigation Links -->
+      <nav class="nav-menu" id="primary-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#services" class="nav-link">What I Do</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link nav-cta-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero" aria-labelledby="hero-title">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="status-indicator" aria-hidden="true"></span>
+            <span>Available for projects &amp; learning opportunities</span>
+          </div>
+          
+          <h1 class="hero-title" id="hero-title">
+            Hi, I'm <span class="text-gradient">Harshal Thakre</span>
+          </h1>
+          
+          <p class="hero-subtitle">B.Tech IT Student | Aspiring Web Developer</p>
+          
+          <p class="hero-description">
+            I build responsive, user-friendly websites and enjoy turning ideas into practical web experiences. I'm continuously improving my skills through hands-on projects.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>View My Projects</span>
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Contact Me</span>
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+
+          <div class="hero-highlights" aria-label="Key highlights">
+            <div class="highlight-item">
+              <span class="highlight-bullet"></span>
+              <span>B.Tech in IT</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-bullet"></span>
+              <span>Clean Code Focus</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-bullet"></span>
+              <span>Mobile-First Approach</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Polished Monogram & Code Visual -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-card">
+            <div class="card-glow"></div>
+            <div class="visual-card-inner">
+              <div class="window-controls">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="window-title">developer.config.json</span>
+              </div>
+              
+              <div class="monogram-wrapper">
+                <div class="monogram-glow-ring"></div>
+                <div class="monogram-symbol">
+                  <span class="initial-h">H</span>
+                  <span class="initial-t">T</span>
+                </div>
+              </div>
+
+              <div class="code-preview">
+                <p class="code-line"><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</p>
+                <p class="code-line indent-1"><span class="code-prop">name</span>: <span class="code-str">"Harshal Thakre"</span>,</p>
+                <p class="code-line indent-1"><span class="code-prop">degree</span>: <span class="code-str">"B.Tech Information Technology"</span>,</p>
+                <p class="code-line indent-1"><span class="code-prop">passion</span>: <span class="code-str">"Responsive Web Design"</span>,</p>
+                <p class="code-line indent-1"><span class="code-prop">status</span>: <span class="code-str status-str">"Building &amp; Learning"</span></p>
+                <p class="code-line">};</p>
+              </div>
+
+              <div class="visual-tags">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="section about-section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Background</p>
+          <h2 class="section-title" id="about-heading">About Me</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-lead">
+              <p>
+                I am a <strong>B.Tech Information Technology student</strong> learning web development through practical, hands-on projects.
+              </p>
+              <p>
+                My journey in technology centers on understanding how modern web interfaces are designed and structured from the ground up. Rather than relying solely on abstract theory, I focus on building functional websites, testing layouts across various devices, and applying clean coding principles in HTML, CSS, and JavaScript.
+              </p>
+            </div>
+
+            <div class="about-focus-areas">
+              <h3 class="focus-title">What I am actively interested in:</h3>
+              <ul class="focus-list">
+                <li class="focus-item">
+                  <div class="focus-icon-wrap" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                  </div>
+                  <div class="focus-text">
+                    <strong>Responsive Web Design:</strong>
+                    <span>Creating adaptable layouts that provide an intuitive viewing experience across mobile phones, tablets, and widescreen desktops.</span>
+                  </div>
+                </li>
+
+                <li class="focus-item">
+                  <div class="focus-icon-wrap" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  </div>
+                  <div class="focus-text">
+                    <strong>Frontend Development:</strong>
+                    <span>Writing semantic HTML5, well-structured CSS3 with modern flexbox and grid, and clean vanilla JavaScript for interactive components.</span>
+                  </div>
+                </li>
+
+                <li class="focus-item">
+                  <div class="focus-icon-wrap" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </div>
+                  <div class="focus-text">
+                    <strong>Building Websites for Small Businesses:</strong>
+                    <span>Crafting clean, accessible digital presence for local stores, dining establishments, and service businesses to help them connect with customers.</span>
+                  </div>
+                </li>
+
+                <li class="focus-item">
+                  <div class="focus-icon-wrap" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                  </div>
+                  <div class="focus-text">
+                    <strong>Learning New Development Tools &amp; Technologies:</strong>
+                    <span>Continuously exploring modern developer tooling, version control workflows, browser performance practices, and web accessibility standards.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Core Capabilities</p>
+          <h2 class="section-title" id="skills-heading">Skills</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+          <p class="section-subtitle">
+            Technologies and concepts I practice and apply in my frontend web development projects.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill 1: HTML5 -->
+          <article class="skill-card">
+            <div class="skill-icon-box html5-theme" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 3l1.8 17.2 6.2 1.8 6.2-1.8L20 3H4z"></path>
+                <path d="M16.5 7H7.5l.5 4.5h8l-.5 4.5-3.5 1-3.5-1-.2-2"></path>
+              </svg>
+            </div>
+            <h3 class="skill-title">HTML5</h3>
+            <p class="skill-description">
+              Writing clean, semantic, and well-structured markup ensuring proper document outline, SEO foundation, and web accessibility.
+            </p>
+            <div class="skill-tag">Structure &amp; Semantics</div>
+          </article>
+
+          <!-- Skill 2: CSS3 -->
+          <article class="skill-card">
+            <div class="skill-icon-box css3-theme" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 3l1.8 17.2 6.2 1.8 6.2-1.8L20 3H4z"></path>
+                <path d="M7.5 7h9l-.5 4.5h-8l.5 4.5 3.5 1 3.5-1 .3-3"></path>
+              </svg>
+            </div>
+            <h3 class="skill-title">CSS3</h3>
+            <p class="skill-description">
+              Styling modern interfaces with CSS variables, Flexbox, CSS Grid, media queries, subtle transitions, and custom dark/light theme systems.
+            </p>
+            <div class="skill-tag">Styling &amp; Layout</div>
+          </article>
+
+          <!-- Skill 3: JavaScript -->
+          <article class="skill-card">
+            <div class="skill-icon-box js-theme" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <path d="M8 15a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-4"></path>
+                <path d="M16 11v6a2 2 0 0 1-2 2h-1"></path>
+              </svg>
+            </div>
+            <h3 class="skill-title">JavaScript</h3>
+            <p class="skill-description">
+              Building interactive features using vanilla JavaScript: DOM manipulation, event handling, form validation, and asynchronous data fetching.
+            </p>
+            <div class="skill-tag">Interactivity &amp; Logic</div>
+          </article>
+
+          <!-- Skill 4: Git -->
+          <article class="skill-card">
+            <div class="skill-icon-box git-theme" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="18" r="3"></circle>
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <path d="M18 15V9a3 3 0 0 0-3-3H9"></path>
+                <line x1="6" y1="9" x2="6" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="skill-title">Git</h3>
+            <p class="skill-description">
+              Managing project version control, branching, committing changes regularly, and tracking code history cleanly throughout development.
+            </p>
+            <div class="skill-tag">Version Control</div>
+          </article>
+
+          <!-- Skill 5: GitHub -->
+          <article class="skill-card">
+            <div class="skill-icon-box github-theme" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </div>
+            <h3 class="skill-title">GitHub</h3>
+            <p class="skill-description">
+              Hosting source code repositories, publishing live static websites with GitHub Pages, and managing project issues and documentation.
+            </p>
+            <div class="skill-tag">Hosting &amp; Collaboration</div>
+          </article>
+
+          <!-- Skill 6: Responsive Web Design -->
+          <article class="skill-card">
+            <div class="skill-icon-box rwd-theme" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <rect x="17" y="9" width="5" height="10" rx="1" ry="1"></rect>
+              </svg>
+            </div>
+            <h3 class="skill-title">Responsive Web Design</h3>
+            <p class="skill-description">
+              Designing with a mobile-first philosophy, fluid typography, flexible grids, and breakpoint testing to ensure consistent cross-device performance.
+            </p>
+            <div class="skill-tag">Adaptive Layouts</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section class="section services-section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Learning &amp; Offerings</p>
+          <h2 class="section-title" id="services-heading">What I Do</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+          <p class="section-subtitle">
+            Types of frontend web work I am actively practicing, learning, and preparing to offer.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service Card 1 -->
+          <article class="service-card">
+            <div class="service-number" aria-hidden="true">01</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3 class="service-title">Responsive Website Development</h3>
+            <p class="service-text">
+              Building websites from the ground up that adapt gracefully to smartphones, tablets, laptops, and desktop screens. I focus on clean structure, readable typography, and fast loading times using native HTML, CSS, and JavaScript.
+            </p>
+            <ul class="service-bullets">
+              <li>Mobile-first layout development</li>
+              <li>Cross-browser compatibility testing</li>
+              <li>Lightweight, framework-free code</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 2 -->
+          <article class="service-card">
+            <div class="service-number" aria-hidden="true">02</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+            </div>
+            <h3 class="service-title">Restaurant &amp; Small Business Websites</h3>
+            <p class="service-text">
+              Creating tailored websites for local dining spots, cafes, and independent businesses. I build practical features such as structured food menus, photo galleries, customer feedback displays, contact information, and reservation forms.
+            </p>
+            <ul class="service-bullets">
+              <li>Interactive menu &amp; gallery sections</li>
+              <li>Business hours, map &amp; location details</li>
+              <li>Clear calls to action for customer inquiries</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 3 -->
+          <article class="service-card">
+            <div class="service-number" aria-hidden="true">03</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3 class="service-title">Website Layout &amp; UI Improvements</h3>
+            <p class="service-text">
+              Refining existing web pages to enhance user experience, fix spacing or alignment glitches, modernize visual hierarchies, and improve mobile usability and accessibility for visitors.
+            </p>
+            <ul class="service-bullets">
+              <li>UI polishing and layout fixes</li>
+              <li>Enhanced navigation flow</li>
+              <li>Color contrast and readability checks</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="section projects-section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Featured Work</p>
+          <h2 class="section-title" id="projects-heading">Featured Projects</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+          <p class="section-subtitle">
+            A real-world project demonstrating practical frontend development, responsive design, and component architecture.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Featured Project 1: Spice Garden -->
+          <article class="project-card">
+            <div class="project-preview-wrapper">
+              <!-- Custom Realistic CSS Mockup for Spice Garden -->
+              <div class="browser-mockup" aria-label="Website preview mockup for Spice Garden">
+                <div class="mockup-header">
+                  <div class="mockup-dots" aria-hidden="true">
+                    <span class="m-dot m-dot-red"></span>
+                    <span class="m-dot m-dot-yellow"></span>
+                    <span class="m-dot m-dot-green"></span>
+                  </div>
+                  <div class="mockup-url-bar">
+                    <span class="mockup-lock" aria-hidden="true">🔒</span>
+                    <span class="mockup-url-text">harshal-thakre08.github.io/spice-garden</span>
+                  </div>
+                </div>
+
+                <div class="mockup-screen">
+                  <div class="mockup-restaurant-hero">
+                    <div class="mockup-nav">
+                      <span class="mockup-brand">🌿 Spice Garden</span>
+                      <div class="mockup-links">
+                        <span>Menu</span>
+                        <span>Gallery</span>
+                        <span>Reviews</span>
+                        <span class="mockup-reserve-badge">Book Table</span>
+                      </div>
+                    </div>
+                    
+                    <div class="mockup-banner-content">
+                      <span class="mockup-badge">Authentic Culinary Experience</span>
+                      <h4 class="mockup-heading">Savor Exquisite Dining &amp; Spices</h4>
+                      <p class="mockup-tagline">Fresh ingredients crafted with passion in a welcoming atmosphere.</p>
+                      
+                      <div class="mockup-menu-row">
+                        <div class="mockup-dish-pill">🍛 Chef's Specials</div>
+                        <div class="mockup-dish-pill">🥗 Fresh Salads</div>
+                        <div class="mockup-dish-pill">🍹 Beverages</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-meta">
+                <span class="project-badge">Live Project</span>
+                <span class="project-category">Full Responsive Website</span>
+              </div>
+
+              <h3 class="project-title">Spice Garden — Restaurant Website</h3>
+
+              <p class="project-description">
+                A responsive restaurant website featuring a food menu, gallery, customer reviews, restaurant information, and a reservation interface. Built to provide visitors with a smooth browsing experience when viewing culinary offerings and planning dining visits.
+              </p>
+
+              <div class="project-tech-stack" aria-label="Technologies used">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">Responsive Design</span>
+                <span class="tech-pill">GitHub Pages</span>
+              </div>
+
+              <div class="project-actions">
+                <a 
+                  href="https://harshal-thakre08.github.io/spice-garden/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn btn-primary btn-sm"
+                  aria-label="View live demo of Spice Garden restaurant website (opens in a new tab)"
+                >
+                  <span>Live Demo</span>
+                  <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+                
+                <a 
+                  href="https://github.com/harshal-thakre08/spice-garden" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="btn btn-secondary btn-sm"
+                  aria-label="View source code of Spice Garden on GitHub (opens in a new tab)"
+                >
+                  <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>View Source Code</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 
+            ===================================================================
+            REUSABLE PROJECT CARD TEMPLATE (Add more projects by copying this block)
+            ===================================================================
+            <article class="project-card">
+              <div class="project-preview-wrapper">
+                <div class="browser-mockup" aria-label="Website preview mockup for Project Name">
+                  <div class="mockup-header">
+                    <div class="mockup-dots" aria-hidden="true">
+                      <span class="m-dot m-dot-red"></span>
+                      <span class="m-dot m-dot-yellow"></span>
+                      <span class="m-dot m-dot-green"></span>
+                    </div>
+                    <div class="mockup-url-bar">
+                      <span class="mockup-lock" aria-hidden="true">🔒</span>
+                      <span class="mockup-url-text">your-live-demo-url.com</span>
+                    </div>
+                  </div>
+                  <div class="mockup-screen">
+                     Your preview content or an <img> screenshot
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span class="project-badge">Project</span>
+                  <span class="project-category">Category</span>
+                </div>
+                <h3 class="project-title">Project Name</h3>
+                <p class="project-description">Project description here...</p>
+                <div class="project-tech-stack">
+                  <span class="tech-pill">HTML5</span>
+                  <span class="tech-pill">CSS3</span>
+                </div>
+                <div class="project-actions">
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Live Demo</a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">View Source Code</a>
+                </div>
+              </div>
+            </article>
+            ===================================================================
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">Get In Touch</p>
+          <h2 class="section-title" id="contact-heading">Let's Work Together</h2>
+          <div class="section-divider" aria-hidden="true"></div>
+          <p class="section-subtitle">
+            Have a project in mind, want to discuss website ideas, or explore collaboration? I'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Contact Info Column -->
+          <div class="contact-info-card">
+            <h3 class="contact-info-title">Connect With Me</h3>
+            <p class="contact-info-text">
+              I am open to discussions about responsive website design, small business web pages, and learning opportunities. Feel free to explore my GitHub repositories or drop a message through the form.
+            </p>
+
+            <div class="contact-links-list">
+              <a 
+                href="https://github.com/harshal-thakre08" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="contact-link-item"
+                aria-label="Visit Harshal Thakre's GitHub Profile (opens in new tab)"
+              >
+                <div class="contact-link-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </div>
+                <div class="contact-link-details">
+                  <span class="contact-link-label">GitHub</span>
+                  <span class="contact-link-value">github.com/harshal-thakre08</span>
+                </div>
+                <svg class="contact-link-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+
+            <!-- Developer Notice Banner -->
+            <div class="contact-note-banner" role="note">
+              <div class="note-icon" aria-hidden="true">💡</div>
+              <div class="note-body">
+                <strong>Static Hosting Information:</strong>
+                <p>
+                  This portfolio is hosted as a static site on GitHub Pages without a backend database. The form validates all inputs directly in the browser and facilitates contacting via your email client or a form endpoint.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Column -->
+          <div class="contact-form-card">
+            <!-- 
+              DEVELOPER CONFIGURATION NOTE:
+              To connect this form to an automatic email service without writing backend code,
+              replace the action attribute with your Formspree endpoint (e.g. action="https://formspree.io/f/YOUR_ID")
+              or EmailJS integration.
+            -->
+            <form id="contact-form" class="contact-form" novalidate aria-label="Send message to Harshal Thakre">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">
+                  Your Name <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-name" 
+                  name="name" 
+                  class="form-input" 
+                  placeholder="e.g. Alex Morgan"
+                  required 
+                  minlength="2"
+                  autocomplete="name"
+                  aria-describedby="name-error"
+                >
+                <div id="name-error" class="form-error-msg" role="alert" aria-live="polite">
+                  <span aria-hidden="true">⚠️</span> Please enter your name (at least 2 characters).
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">
+                  Your Email Address <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="contact-email" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="e.g. alex@example.com"
+                  required 
+                  autocomplete="email"
+                  aria-describedby="email-error"
+                >
+                <div id="email-error" class="form-error-msg" role="alert" aria-live="polite">
+                  <span aria-hidden="true">⚠️</span> Please enter a valid email address (e.g. name@example.com).
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">
+                  Your Message <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <textarea 
+                  id="contact-message" 
+                  name="message" 
+                  class="form-textarea" 
+                  rows="5" 
+                  placeholder="Tell me about your project, website goals, or question..."
+                  required 
+                  minlength="10"
+                  aria-describedby="message-error"
+                ></textarea>
+                <div id="message-error" class="form-error-msg" role="alert" aria-live="polite">
+                  <span aria-hidden="true">⚠️</span> Please enter your message (at least 10 characters).
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
+                <span>Send Message</span>
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Static Site Contact Notice Modal -->
+  <dialog id="contact-dialog" class="contact-dialog" closedby="any" aria-labelledby="dialog-title">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <div class="dialog-icon-wrap" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path></svg>
+        </div>
+        <h3 id="dialog-title" class="dialog-title">Message Validated</h3>
+      </div>
+      
+      <div class="dialog-body">
+        <p class="dialog-lead">
+          Thank you, <strong id="dialog-sender-name">there</strong>! Your message details have been validated successfully.
+        </p>
+        
+        <div class="dialog-callout">
+          <strong>Static Hosting Notice:</strong>
+          <p>
+            Because this portfolio runs entirely on <strong>GitHub Pages</strong> without a live backend database, messages are not transmitted to a private server automatically.
+          </p>
+        </div>
+
+        <p class="dialog-instructions">
+          You can instantly forward this message using your default email client, or copy the formatted text:
+        </p>
+
+        <div class="dialog-preview-box">
+          <div class="preview-field"><strong>From:</strong> <span id="preview-sender"></span></div>
+          <div class="preview-field"><strong>Subject:</strong> <span>Website Inquiry from Portfolio</span></div>
+          <div class="preview-field"><strong>Message:</strong></div>
+          <div class="preview-message-body" id="preview-body"></div>
+        </div>
+      </div>
+
+      <div class="dialog-actions">
+        <a href="#" id="dialog-mailto-btn" class="btn btn-primary btn-sm">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>Open in Email App</span>
+        </a>
+        <button type="button" id="dialog-copy-btn" class="btn btn-secondary btn-sm">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span id="copy-btn-text">Copy Text</span>
+        </button>
+        <button type="button" id="dialog-close-btn" class="btn btn-ghost btn-sm">
+          <span>Close</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo" aria-label="Harshal Thakre Portfolio Home">
+            <span class="logo-bracket">&lt;</span><span class="logo-initials">HT</span><span class="logo-slash">&#47;</span><span class="logo-bracket">&gt;</span>
+          </a>
+          <span class="footer-name">Harshal Thakre</span>
+          <p class="footer-tagline">
+            B.Tech IT Student &amp; Aspiring Web Developer crafting responsive, clean web experiences.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#services">What I Do</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Social</h4>
+          <ul class="footer-nav-list">
+            <li>
+              <a href="https://github.com/harshal-thakre08" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>GitHub Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://harshal-thakre08.github.io/spice-garden/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                <span>Spice Garden Demo</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; <span id="current-year">2026</span> Harshal Thakre. Built with semantic HTML5, CSS3, &amp; Vanilla JavaScript.
+        </p>
+
+        <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top of page">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
+</body>
+</html>
