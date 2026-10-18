@@ -1422,127 +1422,157 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   12. Notice Dialog Modal
+   12. Contact Form Status, Feedback & Loading States
    -------------------------------------------------------------------------- */
-.contact-dialog {
-  border: none;
-  background: transparent;
-  padding: 20px;
-  margin: auto;
-  max-width: 540px;
-  width: 90%;
-  z-index: 2000;
-}
-
-.contact-dialog::backdrop {
-  background: rgba(5, 8, 16, 0.78);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.dialog-content {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-xl);
-  padding: 32px;
-  box-shadow: var(--shadow-lg);
-  color: var(--text-primary);
-}
-
-.dialog-header {
+.form-status-banner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  line-height: 1.55;
   margin-bottom: 20px;
+  animation: bannerFadeIn 0.3s ease-out;
 }
 
-.dialog-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: var(--accent-cyan);
+@keyframes bannerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-status-banner[hidden] {
+  display: none !important;
+}
+
+.status-icon-wrap {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1px;
 }
 
-.dialog-title {
-  font-size: 1.35rem;
+.status-body {
+  flex-grow: 1;
+}
+
+.status-heading {
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-primary);
-}
-
-.dialog-lead {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.dialog-callout {
-  background: rgba(251, 191, 36, 0.08);
-  border: 1px solid rgba(251, 191, 36, 0.25);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  margin-bottom: 16px;
-}
-
-.dialog-callout strong {
   display: block;
-  font-size: 0.88rem;
-  color: #fde68a;
   margin-bottom: 4px;
 }
 
-.dialog-callout p {
-  font-size: 0.85rem;
-  color: #cbd5e1;
+.status-description {
+  font-size: 0.88rem;
   line-height: 1.5;
 }
 
-.dialog-instructions {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
+/* Success State */
+.form-status-banner.is-success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #a7f3d0;
 }
 
-.dialog-preview-box {
-  background: #090e1a;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 14px;
-  font-size: 0.85rem;
-  margin-bottom: 24px;
+.form-status-banner.is-success .status-icon-wrap {
+  color: #34d399;
 }
 
-.preview-field {
+.form-status-banner.is-success .status-heading {
+  color: #6ee7b7;
+}
+
+/* Error State */
+.form-status-banner.is-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fecaca;
+}
+
+.form-status-banner.is-error .status-icon-wrap {
+  color: #f87171;
+}
+
+.form-status-banner.is-error .status-heading {
+  color: #fca5a5;
+}
+
+/* Info / Setup State */
+.form-status-banner.is-info {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #bae6fd;
+}
+
+.form-status-banner.is-info .status-icon-wrap {
+  color: var(--accent-cyan);
+}
+
+.form-status-banner.is-info .status-heading {
+  color: #7dd3fc;
+}
+
+/* Button Loading State & Spinner */
+.btn.is-loading {
+  position: relative;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.btn-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: btnSpin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+
+.btn.is-loading .btn-spinner {
+  display: inline-block;
+}
+
+.btn.is-loading .btn-icon {
+  display: none;
+}
+
+@keyframes btnSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Privacy Note */
+.form-privacy-note {
+  font-size: 0.78rem;
   color: var(--text-muted);
-  margin-bottom: 6px;
-}
-
-.preview-field span {
-  color: var(--text-primary);
-}
-
-.preview-message-body {
-  margin-top: 4px;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 10px;
-  border-radius: var(--radius-sm);
-  white-space: pre-wrap;
-  word-break: break-word;
-  max-height: 100px;
-  overflow-y: auto;
-}
-
-.dialog-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.45;
+}
+
+.form-privacy-note svg {
+  flex-shrink: 0;
+  color: var(--text-muted);
 }
 
 /* --------------------------------------------------------------------------
@@ -1778,9 +1808,6 @@ ul {
     width: 100%;
   }
 
-  .dialog-actions .btn {
-    width: 100%;
-  }
 }
 
 /* --------------------------------------------------------------------------

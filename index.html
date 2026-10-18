@@ -570,7 +570,7 @@
           <div class="contact-info-card">
             <h3 class="contact-info-title">Connect With Me</h3>
             <p class="contact-info-text">
-              I am open to discussions about responsive website design, small business web pages, and learning opportunities. Feel free to explore my GitHub repositories or drop a message through the form.
+              Have a project in mind, want to discuss website ideas, or explore collaboration? Fill out the contact form and your message will be forwarded directly to my inbox. You can also explore my open-source work on GitHub.
             </p>
 
             <div class="contact-links-list">
@@ -592,13 +592,13 @@
               </a>
             </div>
 
-            <!-- Developer Notice Banner -->
+            <!-- Privacy & Security Notice Banner -->
             <div class="contact-note-banner" role="note">
-              <div class="note-icon" aria-hidden="true">💡</div>
+              <div class="note-icon" aria-hidden="true">🔒</div>
               <div class="note-body">
-                <strong>Static Hosting Information:</strong>
+                <strong>Direct &amp; Private Communication:</strong>
                 <p>
-                  This portfolio is hosted as a static site on GitHub Pages without a backend database. The form validates all inputs directly in the browser and facilitates contacting via your email client or a form endpoint.
+                  Messages submitted through this form are forwarded directly to my inbox via a secure form service. My private email address is kept confidential from scrapers, and your contact details are used solely to respond to your inquiry.
                 </p>
               </div>
             </div>
@@ -606,16 +606,14 @@
 
           <!-- Contact Form Column -->
           <div class="contact-form-card">
-            <!-- 
-              DEVELOPER CONFIGURATION NOTE:
-              To connect this form to an automatic email service without writing backend code,
-              replace the action attribute with your Formspree endpoint (e.g. action="https://formspree.io/f/YOUR_ID")
-              or EmailJS integration.
-            -->
-            <form id="contact-form" class="contact-form" novalidate aria-label="Send message to Harshal Thakre">
+            <!-- Formspree Endpoint Connected -->
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xnpjrgdg" method="POST" novalidate aria-label="Send message to Harshal Thakre">
+              <!-- Dynamic Status Banner (Success / Error / Setup Notice) -->
+              <div id="form-status" class="form-status-banner" role="status" aria-live="polite" hidden></div>
+
               <div class="form-group">
                 <label for="contact-name" class="form-label">
-                  Your Name <span class="required-star" aria-hidden="true">*</span>
+                  Full Name <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <input 
                   type="text" 
@@ -629,13 +627,13 @@
                   aria-describedby="name-error"
                 >
                 <div id="name-error" class="form-error-msg" role="alert" aria-live="polite">
-                  <span aria-hidden="true">⚠️</span> Please enter your name (at least 2 characters).
+                  <span aria-hidden="true">⚠️</span> Please enter your full name (at least 2 characters).
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="contact-email" class="form-label">
-                  Your Email Address <span class="required-star" aria-hidden="true">*</span>
+                  Email Address <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <input 
                   type="email" 
@@ -653,8 +651,27 @@
               </div>
 
               <div class="form-group">
+                <label for="contact-subject" class="form-label">
+                  Subject <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="contact-subject" 
+                  name="subject" 
+                  class="form-input" 
+                  placeholder="e.g. Website Project Inquiry / Collaboration"
+                  required 
+                  minlength="3"
+                  aria-describedby="subject-error"
+                >
+                <div id="subject-error" class="form-error-msg" role="alert" aria-live="polite">
+                  <span aria-hidden="true">⚠️</span> Please enter a subject (at least 3 characters).
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label for="contact-message" class="form-label">
-                  Your Message <span class="required-star" aria-hidden="true">*</span>
+                  Message <span class="required-star" aria-hidden="true">*</span>
                 </label>
                 <textarea 
                   id="contact-message" 
@@ -672,65 +689,21 @@
               </div>
 
               <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
-                <span>Send Message</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+                <span class="btn-text">Send Message</span>
                 <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
+
+              <p class="form-privacy-note">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                <span>Privacy note: Information submitted is used solely to respond to your inquiry and is never shared.</span>
+              </p>
             </form>
           </div>
         </div>
       </div>
     </section>
   </main>
-
-  <!-- Static Site Contact Notice Modal -->
-  <dialog id="contact-dialog" class="contact-dialog" closedby="any" aria-labelledby="dialog-title">
-    <div class="dialog-content">
-      <div class="dialog-header">
-        <div class="dialog-icon-wrap" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"></path></svg>
-        </div>
-        <h3 id="dialog-title" class="dialog-title">Message Validated</h3>
-      </div>
-      
-      <div class="dialog-body">
-        <p class="dialog-lead">
-          Thank you, <strong id="dialog-sender-name">there</strong>! Your message details have been validated successfully.
-        </p>
-        
-        <div class="dialog-callout">
-          <strong>Static Hosting Notice:</strong>
-          <p>
-            Because this portfolio runs entirely on <strong>GitHub Pages</strong> without a live backend database, messages are not transmitted to a private server automatically.
-          </p>
-        </div>
-
-        <p class="dialog-instructions">
-          You can instantly forward this message using your default email client, or copy the formatted text:
-        </p>
-
-        <div class="dialog-preview-box">
-          <div class="preview-field"><strong>From:</strong> <span id="preview-sender"></span></div>
-          <div class="preview-field"><strong>Subject:</strong> <span>Website Inquiry from Portfolio</span></div>
-          <div class="preview-field"><strong>Message:</strong></div>
-          <div class="preview-message-body" id="preview-body"></div>
-        </div>
-      </div>
-
-      <div class="dialog-actions">
-        <a href="#" id="dialog-mailto-btn" class="btn btn-primary btn-sm">
-          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          <span>Open in Email App</span>
-        </a>
-        <button type="button" id="dialog-copy-btn" class="btn btn-secondary btn-sm">
-          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          <span id="copy-btn-text">Copy Text</span>
-        </button>
-        <button type="button" id="dialog-close-btn" class="btn btn-ghost btn-sm">
-          <span>Close</span>
-        </button>
-      </div>
-    </div>
-  </dialog>
 
   <!-- Site Footer -->
   <footer class="site-footer">

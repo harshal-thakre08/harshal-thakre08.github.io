@@ -129,27 +129,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------------------
-  // 5. Contact Form Validation & Static Site Notice Modal
+  // 5. Contact Form System (Formspree Integration)
   // -------------------------------------------------------------------------
+  // =========================================================================
+  // INSTRUCTIONS FOR HARSHAL THAKRE:
+  // 1. Create a free account at https://formspree.io/
+  // 2. Click "+ New Form", title it (e.g. "Harshal Portfolio Contact"), and
+  //    enter your private email address where you want to receive messages.
+  // 3. Confirm/verify your email with Formspree.
+  // 4. Copy your form endpoint URL (format: https://formspree.io/f/<your-form-id>)
+  // 5. Paste your endpoint below, replacing 'YOUR_FORMSPREE_ENDPOINT_HERE'
+  // =========================================================================
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnpjrgdg';
+
   const contactForm = document.getElementById('contact-form');
   const nameInput = document.getElementById('contact-name');
   const emailInput = document.getElementById('contact-email');
+  const subjectInput = document.getElementById('contact-subject');
   const messageInput = document.getElementById('contact-message');
-  
-  // Dialog Elements
-  const contactDialog = document.getElementById('contact-dialog');
-  const dialogSenderName = document.getElementById('dialog-sender-name');
-  const previewSender = document.getElementById('preview-sender');
-  const previewBody = document.getElementById('preview-body');
-  const dialogMailtoBtn = document.getElementById('dialog-mailto-btn');
-  const dialogCopyBtn = document.getElementById('dialog-copy-btn');
-  const copyBtnText = document.getElementById('copy-btn-text');
-  const dialogCloseBtn = document.getElementById('dialog-close-btn');
+  const submitBtn = document.getElementById('form-submit-btn');
+  const statusBanner = document.getElementById('form-status');
 
   // RFC 5322 compliant email regex for client-side format testing
   const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
 
+  // Safe HTML escaper for user-provided strings reflected into status banners
+  const escapeHtml = (text) => {
+    const div = document.createElement('div');
+    div.textContent = text || '';
+    return div.innerHTML;
+  };
+
+  // Helper to render accessible status banners
+  const showStatusBanner = (type, title, descriptionHtml) => {
+    if (!statusBanner) return;
+
+    statusBanner.className = `form-status-banner is-${type}`;
+    statusBanner.setAttribute('role', type === 'error' ? 'alert' : 'status');
+
+    let iconSvg = '';
+    if (type === 'success') {
+      iconSvg = '<svg class="status-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>';
+    } else if (type === 'error') {
+      iconSvg = '<svg class="status-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>';
+    } else {
+      iconSvg = '<svg class="status-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
+    }
+
+    statusBanner.innerHTML = `
+      <div class="status-icon-wrap" aria-hidden="true">${iconSvg}</div>
+      <div class="status-body">
+        <strong class="status-heading">${title}</strong>
+        <p class="status-description">${descriptionHtml}</p>
+      </div>
+    `;
+
+    statusBanner.hidden = false;
+    statusBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  };
+
   const validateField = (input, testCondition) => {
+    if (!input) return false;
     const isValid = testCondition();
     const group = input.closest('.form-group');
 
@@ -166,21 +206,26 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const validateName = () => {
-    return validateField(nameInput, () => nameInput.value.trim().length >= 2);
+    return validateField(nameInput, () => nameInput && nameInput.value.trim().length >= 2);
   };
 
   const validateEmail = () => {
     return validateField(emailInput, () => {
+      if (!emailInput) return false;
       const val = emailInput.value.trim();
       return val.length > 0 && emailRegex.test(val);
     });
   };
 
-  const validateMessage = () => {
-    return validateField(messageInput, () => messageInput.value.trim().length >= 10);
+  const validateSubject = () => {
+    return validateField(subjectInput, () => subjectInput && subjectInput.value.trim().length >= 3);
   };
 
-  // Modern input event listeners for responsive feedback
+  const validateMessage = () => {
+    return validateField(messageInput, () => messageInput && messageInput.value.trim().length >= 10);
+  };
+
+  // Real-time input listeners to clear validation errors upon typing
   if (nameInput) {
     nameInput.addEventListener('blur', validateName);
     nameInput.addEventListener('input', () => {
@@ -195,6 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (subjectInput) {
+    subjectInput.addEventListener('blur', validateSubject);
+    subjectInput.addEventListener('input', () => {
+      if (subjectInput.classList.contains('is-invalid')) validateSubject();
+    });
+  }
+
   if (messageInput) {
     messageInput.addEventListener('blur', validateMessage);
     messageInput.addEventListener('input', () => {
@@ -202,13 +254,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Form submission logic
+  let isSubmitting = false;
+
+  // Form submission with real Formspree HTTP POST integration
   if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
+      // Validate all required fields
       const isNameValid = validateName();
       const isEmailValid = validateEmail();
+      const isSubjectValid = validateSubject();
       const isMessageValid = validateMessage();
 
       if (!isNameValid) {
@@ -219,84 +275,123 @@ document.addEventListener('DOMContentLoaded', () => {
         emailInput.focus();
         return;
       }
+      if (!isSubjectValid) {
+        subjectInput.focus();
+        return;
+      }
       if (!isMessageValid) {
         messageInput.focus();
         return;
       }
 
-      // Gather form values
+      // Trim all inputs
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
+      const subject = subjectInput.value.trim();
       const message = messageInput.value.trim();
 
-      // Populate Notice Dialog
-      if (dialogSenderName) dialogSenderName.textContent = name;
-      if (previewSender) previewSender.textContent = `${name} (${email})`;
-      if (previewBody) previewBody.textContent = message;
+      // Check if endpoint is configured or still placeholder
+      const isEndpointConfigured = 
+        FORMSPREE_ENDPOINT &&
+        FORMSPREE_ENDPOINT !== 'YOUR_FORMSPREE_ENDPOINT_HERE' &&
+        !FORMSPREE_ENDPOINT.startsWith('YOUR_') &&
+        FORMSPREE_ENDPOINT.startsWith('https://formspree.io/');
 
-      // Prepare mailto link fallback
-      // Harshal can add his real email here if desired, e.g. mailto:harshal@example.com
-      const mailtoSubject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-      const mailtoBody = encodeURIComponent(`Hi Harshal,\n\n${message}\n\nBest regards,\n${name}\n${email}`);
-      if (dialogMailtoBtn) {
-        dialogMailtoBtn.setAttribute('href', `mailto:?subject=${mailtoSubject}&body=${mailtoBody}`);
+      if (!isEndpointConfigured) {
+        // Do not pretend the message was sent; show clear setup instructions
+        showStatusBanner(
+          'info',
+          'Form Service Setup Required',
+          'The contact system is fully coded and ready, but your Formspree endpoint has not been inserted yet. Please create a free form at <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;font-weight:600;">formspree.io</a>, verify your recipient email, and paste your form URL into <code>script.js</code> (line 143). Your entered message has been preserved below.'
+        );
+        return;
       }
 
-      // Configure copy to clipboard action
-      if (dialogCopyBtn && copyBtnText) {
-        dialogCopyBtn.onclick = async () => {
-          const formattedText = `From: ${name} (${email})\nSubject: Portfolio Inquiry\n\nMessage:\n${message}`;
+      // Prevent duplicate submissions
+      if (isSubmitting) return;
+      isSubmitting = true;
+
+      // Update submit button to loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('is-loading');
+        submitBtn.setAttribute('aria-busy', 'true');
+        const btnText = submitBtn.querySelector('.btn-text');
+        if (btnText) btnText.textContent = 'Sending Message...';
+      }
+
+      // Hide previous status banner while request is in flight
+      if (statusBanner) statusBanner.hidden = true;
+
+      try {
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            subject,
+            message
+          })
+        });
+
+        if (response.ok) {
+          // Confirmed successful delivery by the form service
+          showStatusBanner(
+            'success',
+            'Message Sent Successfully!',
+            `Thank you, ${escapeHtml(name)}! Your message has been delivered to Harshal's inbox. I'll get back to you shortly.`
+          );
+
+          // Clear form fields ONLY on confirmed success
+          contactForm.reset();
+          [nameInput, emailInput, subjectInput, messageInput].forEach((input) => {
+            if (input) {
+              input.classList.remove('is-invalid');
+              input.removeAttribute('aria-invalid');
+              const group = input.closest('.form-group');
+              if (group) group.classList.remove('has-error');
+            }
+          });
+        } else {
+          // Server returned an error (e.g. invalid submission, rate limit)
+          let errorDetails = 'Please review your details and try again.';
           try {
-            await navigator.clipboard.writeText(formattedText);
-            const originalText = copyBtnText.textContent;
-            copyBtnText.textContent = 'Copied!';
-            setTimeout(() => {
-              copyBtnText.textContent = originalText;
-            }, 2500);
-          } catch (err) {
-            console.error('Clipboard copy error: ', err);
+            const data = await response.json();
+            if (data && data.errors && Array.isArray(data.errors) && data.errors.length > 0) {
+              errorDetails = data.errors.map((e) => e.message || e.field).join(', ');
+            } else if (data && data.error) {
+              errorDetails = data.error;
+            }
+          } catch (jsonErr) {
+            // Non-JSON response body
           }
-        };
-      }
 
-      // Open <dialog> modal with accessibility focus
-      if (contactDialog && typeof contactDialog.showModal === 'function') {
-        contactDialog.showModal();
-      }
-
-      // Reset form fields cleanly
-      contactForm.reset();
-      [nameInput, emailInput, messageInput].forEach((input) => {
-        input.classList.remove('is-invalid');
-        input.removeAttribute('aria-invalid');
-        const group = input.closest('.form-group');
-        if (group) group.classList.remove('has-error');
-      });
-    });
-  }
-
-  // Close dialog handler
-  if (dialogCloseBtn && contactDialog) {
-    dialogCloseBtn.addEventListener('click', () => {
-      contactDialog.close();
-    });
-  }
-
-  // Light-dismiss fallback for browsers without native `closedby` attribute support
-  if (contactDialog && !('closedBy' in HTMLDialogElement.prototype)) {
-    contactDialog.addEventListener('click', (event) => {
-      if (event.target !== contactDialog) return;
-
-      const rect = contactDialog.getBoundingClientRect();
-      const isDialogContent = (
-        rect.top <= event.clientY &&
-        event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX &&
-        event.clientX <= rect.left + rect.width
-      );
-
-      if (!isDialogContent) {
-        contactDialog.close();
+          showStatusBanner(
+            'error',
+            'Submission Failed',
+            `The contact service was unable to accept the message: ${escapeHtml(errorDetails)}. Your message has been preserved below so you can retry.`
+          );
+        }
+      } catch (networkError) {
+        // Network connection error or CORS/offline issue
+        showStatusBanner(
+          'error',
+          'Network Error',
+          'A connection error occurred while sending your message. Please check your internet connection and try again. Your entered message has been preserved below.'
+        );
+      } finally {
+        isSubmitting = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('is-loading');
+          submitBtn.removeAttribute('aria-busy');
+          const btnText = submitBtn.querySelector('.btn-text');
+          if (btnText) btnText.textContent = 'Send Message';
+        }
       }
     });
   }

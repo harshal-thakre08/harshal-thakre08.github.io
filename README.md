@@ -6,15 +6,16 @@ A modern, responsive personal portfolio website for **Harshal Thakre**, a B.Tech
 
 ## 🌟 Overview
 
-This portfolio showcases Harshal's web development projects, technical skills, and service offerings for potential freelance clients, recruiters, and small businesses. It features an elegant dark navy and charcoal theme with vibrant cyan and violet accents, thoughtful typography, smooth transitions, and high standards of web accessibility.
+This portfolio showcases Harshal's web development projects, technical skills, services, and a professional, working contact system for potential freelance clients, recruiters, and small businesses. It features an elegant dark navy and charcoal theme with vibrant cyan and violet accents, thoughtful typography, smooth transitions, and high standards of web accessibility.
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **HTML5**: Semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<dialog>`, `<footer>`), structured content outline, accessible labels, and ARIA landmarks.
+- **HTML5**: Semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`), structured document outline, accessible labels, ARIA landmarks, and live status regions.
 - **CSS3**: Custom properties (CSS variables), modern Flexbox & CSS Grid, responsive media queries, glassmorphism backdrop filters, `:user-invalid` / `:user-valid` form states, and `@media (prefers-reduced-motion: reduce)`.
-- **Vanilla JavaScript**: Pure ES6+ script with zero runtime dependencies. Handles mobile drawer navigation, active link tracking with `IntersectionObserver`, live input validation, clipboard integration, and static site notice dialog management.
+- **Vanilla JavaScript**: Pure ES6+ script with zero runtime dependencies. Handles mobile drawer navigation, active link tracking with `IntersectionObserver`, asynchronous `fetch()` API for form delivery, live input validation, and dynamic copyright year.
+- **Formspree**: Secure, serverless form processing backend ideal for static sites hosted on GitHub Pages, protecting the owner's private email address from scrapers.
 - **Inline SVG Icons**: High-contrast, scalable vector graphics bundled directly in HTML for fast load times and offline reliability.
 
 ---
@@ -52,16 +53,56 @@ This portfolio showcases Harshal's web development projects, technical skills, a
    - Direct links to the live website and source code.
    - Reusable template markup included in `index.html` for effortlessly adding new projects in the future.
 
-7. **Contact & Form Validation**:
-   - Client-side validation for required fields and RFC-compliant email formats.
-   - Modern `:user-invalid` styling that only flags errors after user interaction.
-   - Static hosting notice dialog (`<dialog closedby="any">`) explaining that GitHub Pages runs without a backend, providing a direct `mailto:` launcher and message copying helper.
-   - Direct link to GitHub profile: [github.com/harshal-thakre08](https://github.com/harshal-thakre08).
+7. **Professional Working Contact System**:
+   - **Fields**: Full Name, Email Address, Subject, and Message (all required).
+   - **Client-Side Validation**: Immediate feedback on blur/input; RFC-compliant email checking; whitespace trimming.
+   - **Loading State**: Animated spinner indicator, button disabled with `aria-busy="true"` to prevent accidental double-submits.
+   - **Confirmed Delivery**: Displays a success banner only after Formspree confirms HTTP acceptance (HTTP 200). The form is cleared only on confirmed success.
+   - **Resilient Error Handling**: Catches network failures and service errors, displaying clear recovery guidance while preserving all user-entered text so nothing is lost.
+   - **Email Privacy**: Visitors contact Harshal through the site without exposing his private email address to scrapers and spambots.
+   - **Setup Guard**: If submitted prior to inserting a real Formspree endpoint, displays a helpful setup reminder while preserving the user's message.
 
 8. **Footer & Accessibility**:
    - Auto-updating copyright year via JavaScript.
    - Floating back-to-top button with smooth scroll.
    - Skip to main content link for screen reader and keyboard navigation.
+
+---
+
+## 📬 Connecting Your Formspree Endpoint (Setup Guide)
+
+Because GitHub Pages hosts static files without a backend server, this portfolio is pre-configured to use **Formspree** as its contact service.
+
+### Step 1: Create Your Free Formspree Account
+1. Visit [https://formspree.io/](https://formspree.io/) and sign up for a free account.
+
+### Step 2: Create a New Form & Verify Your Email
+1. In your Formspree dashboard, click **"+ New Form"**.
+2. Give your form a name (e.g., `Harshal Portfolio Contact`).
+3. Enter your **private personal/professional email address** in the "Send emails to" field.
+4. Check your inbox and click the **verification link** sent by Formspree so it has permission to forward messages to you.
+
+### Connected Formspree Endpoint
+Your portfolio contact form is connected to your active Formspree endpoint:
+```
+https://formspree.io/f/xnpjrgdg
+```
+
+This endpoint is configured in both:
+1. **`script.js` (line 143):**
+   ```javascript
+   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xnpjrgdg';
+   ```
+
+2. **`index.html` (line 610):**
+   ```html
+   <form id="contact-form" class="contact-form" action="https://formspree.io/f/xnpjrgdg" method="POST" ...>
+   ```
+
+### 🔒 Email Privacy & Security
+- **No Email Scraped**: Your real email address is stored securely inside your private Formspree account settings. It is **never** published in `index.html`, `script.js`, or the GitHub repository.
+- **Spam Protection**: Formspree automatically filters automated bot submissions.
+- **GDPR & Privacy Compliant**: Form submissions are used solely to forward visitor inquiries to your inbox.
 
 ---
 
@@ -105,7 +146,7 @@ Then visit `http://localhost:8000` in your browser.
    ```bash
    git init
    git add .
-   git commit -m "Initial commit: Harshal Thakre Portfolio"
+   git commit -m "Update portfolio with working contact system"
    git branch -M main
    git remote add origin https://github.com/harshal-thakre08/<YOUR-REPO-NAME>.git
    git push -u origin main
@@ -119,34 +160,6 @@ Then visit `http://localhost:8000` in your browser.
      - **Branch**: Select `main` and folder `/ (root)`.
    - Click **Save**.
    - Within 1–2 minutes, GitHub will publish your portfolio at `https://harshal-thakre08.github.io/<YOUR-REPO-NAME>/`.
-
----
-
-## ⚙️ Customization & Developer Guide
-
-### 1. Adding Your Real Email Address
-If you'd like the contact form's "Open in Email App" button to pre-address emails to you directly:
-1. Open `script.js`.
-2. Locate line 224:
-   ```javascript
-   dialogMailtoBtn.setAttribute('href', `mailto:?subject=${mailtoSubject}&body=${mailtoBody}`);
-   ```
-3. Replace `mailto:?` with your email, e.g.:
-   ```javascript
-   dialogMailtoBtn.setAttribute('href', `mailto:yourname@example.com?subject=${mailtoSubject}&body=${mailtoBody}`);
-   ```
-
-### 2. Connecting Formspree or EmailJS (Optional Backend)
-To have messages delivered directly to your inbox without a custom server:
-1. Create a free account at [Formspree.io](https://formspree.io).
-2. Create a new form and copy your Form ID.
-3. In `index.html`, update the `<form>` tag:
-   ```html
-   <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   ```
-
-### 3. Adding More Projects
-A reusable commented project card template is provided inside `index.html` in the `#projects` section. Copy and paste the template block to easily add future projects as you build them.
 
 ---
 
